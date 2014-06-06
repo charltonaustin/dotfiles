@@ -1,3 +1,7 @@
+[user]
+  email = charlton.austin@gmail.com
+  name = charltonaustin
+
 [alias]
   st = status
   ci = commit
