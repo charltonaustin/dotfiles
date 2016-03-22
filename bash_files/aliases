@@ -1,0 +1,18 @@
+alias la='ls -a'
+alias ll='ls -l'
+alias lla='ls -la'
+alias l='ls'
+
+
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+alias mkdir='mkdir -pv'
+
+alias vi=vim
+alias svi='sudo vi'
+alias vis='vim "+set si"'
+alias edit='vim'
+
+alias functions='declare -f'

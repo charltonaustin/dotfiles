@@ -1,0 +1,2 @@
+function blank_files { find ./ -name "*.xls" | grep " "; }
+function no_blank_files { find ./ -name "*.xls" | grep " " | sed 's/ //g'; }
