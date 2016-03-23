@@ -1,2 +1,18 @@
 function blank_files { find ./ -name "*.xls" | grep " "; }
+
 function no_blank_files { find ./ -name "*.xls" | grep " " | sed 's/ //g'; }
+
+function vactivate () {
+	source ~/virtualenv/$1/bin/activate
+}
+
+function _vactivate () {
+	local cur opts
+	cur="${COMP_WORDS[COMP_CWORD]}"
+	opts=$(cd ~/virtualenv/ ; ls -d * | sed 's|/./||')
+	COMPREPLY=($(compgen -W "${opts}" -- ${cur}))
+}
+
+function venv-list () {
+	ls ~/virtualenv/
+}

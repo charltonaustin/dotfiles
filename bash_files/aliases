@@ -16,3 +16,6 @@ alias vis='vim "+set si"'
 alias edit='vim'
 
 alias functions='declare -f'
+
+alias work='cd ~/dev/work'
+alias dev='cd ~/dev'
