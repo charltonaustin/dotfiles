@@ -16,3 +16,25 @@ function _vactivate () {
 function venv-list () {
 	ls ~/virtualenv/
 }
+
+function work () {
+	cd ~/dev/work/$1
+}
+
+function _work () {
+	local cur opts
+	cur="${COMP_WORDS[COMP_CWORD]}"
+	opts=$(cd ~/dev/work/ ; ls -d * | sed 's|/./||')
+	COMPREPLY=($(compgen -W "${opts}" -- ${cur}))
+}
+
+function dev () {
+	cd ~/dev/$1
+}
+
+function _dev () {
+	local cur opts
+	cur="${COMP_WORDS[COMP_CWORD]}"
+	opts=$(cd ~/dev/ ; ls -d * | sed 's|/./||')
+	COMPREPLY=($(compgen -W "${opts}" -- ${cur}))
+}

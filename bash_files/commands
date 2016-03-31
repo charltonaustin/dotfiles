@@ -1,1 +1,3 @@
 complete -F _vactivate vactivate
+complete -F _work work
+complete -F _dev dev
