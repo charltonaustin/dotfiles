@@ -1,8 +1,8 @@
 var a = "cat";
-var arr = a;
+var b = a;
 a = "dog"
 console.log("a: " + a)
-console.log("arr: " + arr)
+console.log("b: " + b)
 
 var a = ["cat"];
 var arr = a;
