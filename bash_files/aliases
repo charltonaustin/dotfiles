@@ -16,3 +16,4 @@ alias vis='vim "+set si"'
 alias edit='vim'
 
 alias functions='declare -f'
+alias ssh-blog='ssh 192.241.242.31'
