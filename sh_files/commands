@@ -1,3 +1,10 @@
 eval "$(rbenv init -)"
 eval "$(pyenv virtualenv-init -)"
 eval "$(pyenv init -)"
+if [[ "$(uname -a)" =~ .*Darwin.* ]]
+	then
+		echo "On Mac"
+		eval $(/usr/local/bin/docker-machine env default)
+	else
+		echo "Unknow system"
+fi

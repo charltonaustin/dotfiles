@@ -17,3 +17,11 @@ alias edit='vim'
 
 alias functions='declare -f'
 alias ssh-blog='ssh 192.241.242.31'
+
+alias dc='docker-compose'
+
+for f in ~/dotfiles/sh_files/*
+do
+  filename=`basename $f`
+  alias v$filename="vim ~/dotfiles/sh_files/${filename} && source ~/.zshrc"
+done
