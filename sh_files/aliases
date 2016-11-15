@@ -21,8 +21,9 @@ alias ssh-blog='ssh 192.241.242.31'
 alias dc='docker-compose'
 alias q='cd $QUAY/quay'
 alias q_c='cd $QUAY/quay_config'
+alias q-c='cd $QUAY'
+alias qb='cd $QUAY/quay-builder'
 alias w='cd $WORK'
-alias pomodoro='$HOME/dotfiles/pomodoro_mac.sh'
 
 for f in ~/dotfiles/sh_files/*
 do

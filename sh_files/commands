@@ -4,7 +4,8 @@ eval "$(pyenv init -)"
 if [[ "$(uname -a)" =~ .*Darwin.* ]]
 	then
 		echo "On Mac"
-		eval $(/usr/local/bin/docker-machine env default)
+		eval $(dinghy env)
+		bindkey "^X\\x7f" backward-kill-line
 	else
 		echo "Unknow system"
 fi
