@@ -1,0 +1,14 @@
+#!/bin/bash
+x=`/usr/bin/osascript <<EOT
+tell application "Finder"
+    activate
+    set myReply to button returned of (display dialog "Take a five minute" default button 1 buttons {"Cancel", "OK"})
+end tell
+EOT`
+echo 'Button is: '$x
+if [[ $x = "OK" ]]; then 
+  mkdir -p $HOME/work
+  touch $HOME/work/daily_pomodoro.txt
+  echo `date` "Taking a break" >> $HOME/work/daily_pomodoro.txt
+  delayed_mac 5 twenty_five_min
+fi

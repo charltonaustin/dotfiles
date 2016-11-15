@@ -1,0 +1,24 @@
+#!/bin/bash
+x=`/usr/bin/osascript <<EOT
+tell application "Finder"
+    activate
+    set myReply to text returned of (display dialog "Start 25 mins: Please put in task" default button 1 buttons {"OK"} default answer "" with icon 1)
+end tell
+EOT`
+echo 'Text is: '$x
+if [[ -z "$x" ]]; then
+  echo "Done for now"
+  WRAP_UP_FILE=$HOME/work/`date "+%Y_%m_%d"`_pomodoro.txt
+  if [ -f $WRAP_UP_FILE ];
+   then
+     cat $HOME/work/daily_pomodoro.txt >> $WRAP_UP_FILE
+     rm $HOME/work/daily_pomodoro.txt
+   else
+     mv $HOME/work/daily_pomodoro.txt $WRAP_UP_FILE
+  fi
+else
+  mkdir -p $HOME/work
+  touch $HOME/work/daily_pomodoro.txt 
+  echo `date` $x >> $HOME/work/daily_pomodoro.txt 
+  delayed_mac 25 five_min
+fi
