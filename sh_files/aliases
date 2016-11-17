@@ -24,6 +24,7 @@ alias q_c='cd $QUAY/quay_config'
 alias q-c='cd $QUAY'
 alias qb='cd $QUAY/quay-builder'
 alias w='cd $WORK'
+alias glc='git-local-checkout'
 
 for f in ~/dotfiles/sh_files/*
 do
