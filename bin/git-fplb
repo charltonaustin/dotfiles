@@ -1,0 +1,8 @@
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+if [ "$BRANCH" == "master" ]
+then 
+  echo "Can't force push to master"
+else
+  echo "Force pushing!"
+  git push -f origin 
+fi
