@@ -25,6 +25,13 @@ alias q-c='cd $QUAY'
 alias qb='cd $QUAY/quay-builder'
 alias w='cd $WORK'
 alias glc='git-local-checkout'
+alias go-coreoi='cd $HOME/dev/go/src/github.com/coreos-inc'
+alias go-coreo='cd $HOME/dev/go/src/github.com/coreos'
+alias g-a='cd $HOME/dev/go/src/github.com/coreos-inc/apostille'
+alias ts='cd $HOME/dev/go/src/github.com/tuesday-strategies/tuesday-strategies'
+alias g-cha='cd $HOME/dev/go/src/github.com/charltonaustin'
+
+alias docker-clean='docker rm -v $(docker ps -a -q -f status=exited) || docker rmi $(docker images -f "dangling=true" -q) || docker volume rm $(docker volume ls -qf dangling=true) 2> /dev/null'
 
 for f in ~/dotfiles/sh_files/*
 do

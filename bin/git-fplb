@@ -4,5 +4,5 @@ then
   echo "Can't force push to master"
 else
   echo "Force pushing!"
-  git push -f origin 
+  git push -f origin $BRANCH
 fi
