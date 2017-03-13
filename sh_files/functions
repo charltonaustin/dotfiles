@@ -38,3 +38,14 @@ function _dev () {
 	opts=$(cd ~/dev/ ; ls -d * | sed 's|/./||')
 	COMPREPLY=($(compgen -W "${opts}" -- ${cur}))
 }
+
+function docker-sh () {
+	 docker run -it --entrypoint=/bin/bash $1 -i
+}
+
+function _docker-sh () {
+	local cur opts
+	cur="${COMP_WORDS[COMP_CWORD]}"
+	opts=$(docker images | cut -d' ' -f1 | grep -v \<none\> | grep -v REPOSITORY)
+	COMPREPLY=($(compgen -W "${opts}" -- ${cur}))
+}
