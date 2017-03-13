@@ -106,4 +106,4 @@ if [ -f /Users/charlie/google-cloud-sdk/completion.zsh.inc ]; then
   source '/Users/charlie/google-cloud-sdk/completion.zsh.inc'
 fi
 
-alias emacs="open -a /Applications/Emacs.app"
+zstyle ':completion:*:*:git:*' user-commands new-branch:'custom new branch function'
