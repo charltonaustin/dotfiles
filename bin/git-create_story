@@ -1,0 +1,14 @@
+BRANCH_NAME=`echo $@ | tr '[:upper:]' '[:lower:]' | sed 's/#//g' | sed 's/ \{1,\}/_/g'`
+for last; do true; done
+echo $last
+STORY_NUMBER=`echo $last | sed 's/#//g'`
+echo "Unsetting ${git config --local --get story.number}"
+git config --unset --local story.number
+echo "Unsetting story.branch ${git config --local --get story.branch}"
+git config --unset --local story.branch
+echo "Setting story.number ${STORY_NUMBER}"
+git config --add --local story.number $STORY_NUMBER
+echo "Setting story.branch ${BRANCH_NAME}"
+git config --add --local story.branch $BRANCH_NAME
+
+git checkout -b $BRANCH_NAME

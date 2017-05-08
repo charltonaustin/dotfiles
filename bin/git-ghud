@@ -1,2 +1,16 @@
-git pull upstream master
-git push origin master
+IS_UPSTREAM=`git remote -v | grep fetch | grep upstream`
+CURRENT_BRANCH=`git rev-parse --abbrev-ref HEAD`
+echo going from $CURRENT_BRANCH to master
+git checkout master
+if [[ !  -z  $IS_UPSTREAM  ]]; then
+  echo "Pulling from upstream master"
+  git pull upstream master
+  echo "Pushing to origin master"
+  git push origin master
+else
+  echo "Pulling from origin master"
+  git pull origin master
+fi
+
+echo going from master to $CURRENT_BRANCH
+git checkout $CURRENT_BRANCH
