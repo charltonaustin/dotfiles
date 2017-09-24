@@ -20,6 +20,7 @@ alias edit='vim'
 alias functions='declare -f'
 alias ssh-blog='ssh 192.241.242.31'
 
+alias alm='cd $HOME/dev/go/src/github.com/coreos-inc/alm'
 alias dc='docker-compose'
 alias q='cd $QUAY/quay'
 alias q_c='cd $QUAY/quay_config'
