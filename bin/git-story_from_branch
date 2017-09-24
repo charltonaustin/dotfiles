@@ -1,0 +1,6 @@
+STORY_NUMBER=`git branch | grep \* | rev  | cut -d'_' -f 1 | rev `
+BRANCH_NAME=`git branch | grep \* | sed 's/\* //g'`
+echo "Setting story.number ${STORY_NUMBER}"
+git config --add --local story.number $STORY_NUMBER
+echo "Setting story.branch ${BRANCH_NAME}"
+git config --add --local story.branch $BRANCH_NAME

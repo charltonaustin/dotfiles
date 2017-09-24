@@ -1,0 +1,3 @@
+echo "story number: `git config --local --get story.number`"
+echo "branch: `git config --local --get story.branch`"
+
