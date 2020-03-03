@@ -8,17 +8,17 @@ EOT`
 echo 'Text is: '$x
 if [[ -z "$x" ]]; then
   echo "Done for now"
-  WRAP_UP_FILE=$HOME/work/`date "+%Y_%m_%d"`_pomodoro.txt
+  WRAP_UP_FILE=$HOME/dev/work/`date "+%Y_%m_%d"`_pomodoro.txt
   if [ -f $WRAP_UP_FILE ];
    then
-     cat $HOME/work/daily_pomodoro.txt >> $WRAP_UP_FILE
-     rm $HOME/work/daily_pomodoro.txt
+     cat $HOME/dev/work/daily_pomodoro.txt >> $WRAP_UP_FILE
+     rm $HOME/dev/work/daily_pomodoro.txt
    else
-     mv $HOME/work/daily_pomodoro.txt $WRAP_UP_FILE
+     mv $HOME/dev/work/daily_pomodoro.txt $WRAP_UP_FILE
   fi
 else
-  mkdir -p $HOME/work
-  touch $HOME/work/daily_pomodoro.txt 
-  echo `date` $x >> $HOME/work/daily_pomodoro.txt 
+  mkdir -p $HOME/dev/work
+  touch $HOME/dev/work/daily_pomodoro.txt 
+  echo `date` $x >> $HOME/dev/work/daily_pomodoro.txt 
   delayed_mac 25 five_min
 fi

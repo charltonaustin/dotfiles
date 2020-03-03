@@ -41,8 +41,8 @@ alias docker-clean='docker rm $(docker ps -a -q); docker rmi $(docker images -f 
 alias docker-stop='docker stop $(docker ps -a -q)'
 
 
-for f in ~/dotfiles/sh_files/*
+for f in ~/dev/personal/dotfiles/sh_files/*
 do
   filename=`basename $f`
-  alias v$filename="vim ~/dotfiles/sh_files/${filename} && source ~/.zshrc"
+  alias v$filename="vim ~/dev/personal/dotfiles/sh_files/${filename} && source ~/.zshrc"
 done

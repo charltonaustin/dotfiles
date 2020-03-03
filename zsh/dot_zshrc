@@ -1,7 +1,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/charlie/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -90,27 +90,36 @@ eval "$(pyenv init -)"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-for f in ~/dotfiles/sh_files/*; do source $f; done
-for f in ~/dotfiles/completions/zsh/*; do source $f; done
+for f in $HOME/dev/personal/dotfiles/sh_files/*; do source $f; done
+for f in $HOME/dev/personal/dotfiles/completions/zsh/*; do source $f; done
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f /Users/charlie/google-cloud-sdk/path.zsh.inc ]; then
-  source '/Users/charlie/google-cloud-sdk/path.zsh.inc'
-fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f /Users/charlie/google-cloud-sdk/completion.zsh.inc ]; then
-  source '/Users/charlie/google-cloud-sdk/completion.zsh.inc'
-fi
-
 zstyle ':completion:*:*:git:*' user-commands new-branch:'custom new branch function'
 
-[[ -s "/Users/charlie/.gvm/scripts/gvm" ]] && source "/Users/charlie/.gvm/scripts/gvm"
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
 [[ -s "kubectl" ]] && source <(kubectl completion zsh | sed -e '/flaghash.*true/s/# pad/2>\/dev\/null # pad/')
 
-export PATH=/Users/charlie/google-cloud-sdk/bin:/usr/local/sbin:/Users/charlie/.pyenv/shims:/usr/local/Cellar/pyenv-virtualenv/1.0.0/shims:/Users/charlie/.rbenv/shims:/Users/charlie/.pyenv/shims:/usr/local/Cellar/pyenv-virtualenv/1.0.0/shims:/Users/charlie/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin:/Applications/Wireshark.app/Contents/MacOS:/usr/local/opt/go/libexec/bin:/Users/charlie/dev/work/git_commit_message:/usr/local/opt/go/libexec/bin:/Users/charlie/dev/go/bin:/Users/charlie/dotfiles/bin:/Users/charlie/.vimpkg/bin
+export PATH=$HOME/google-cloud-sdk/bin:/usr/local/sbin:$HOME/.pyenv/shims:/usr/local/Cellar/pyenv-virtualenv/1.0.0/shims:$HOME/.rbenv/shims:$HOME/.pyenv/shims:/usr/local/Cellar/pyenv-virtualenv/1.0.0/shims:$HOME/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin:/Applications/Wireshark.app/Contents/MacOS:/usr/local/opt/go/libexec/bin:$HOME/dev/work/git_commit_message:/usr/local/opt/go/libexec/bin:$HOME/dev/go/bin:$HOME/dev/personal/dotfiles/bin:$HOME/.vimpkg/bin
 
 alias ctags="`brew --prefix`/bin/ctags"
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+eval "$(rbenv init -)"
+eval "$(pyenv init -)"
+export TS_HOME=/Users/charltonaustin/dev/work/tuesday-strategies
+export REACT_APP_TS_CONFIG_ENV=dev
+export REACT_APP_TS_CONFIG_URL=http://localhost:4000
+alias blog_stats="ssh root@159.65.254.36 -C \"psql blog -c \\\"select count(*) from visits where route='/' or route='/about' group by route;\\\"\""
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/charltonaustin/Documents/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/charltonaustin/Documents/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/charltonaustin/Documents/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/charltonaustin/Documents/google-cloud-sdk/completion.zsh.inc'; fi
+export JIRA_BASE_URL=https://tuesdaycompany.atlassian.net
+export JIRA_AUTH_USER=charlie@tuesdaycompany.com
+export PATH=$PATH:${HOME}/go/bin
+export PATH=$PATH:${HOME}/Documents/google-cloud-sdk/bin/gcloud
+export PATH="/Users/charltonaustin/Documents/google-cloud-sdk/bin:/Users/charltonaustin/.pyenv/shims:/Users/charltonaustin/.rbenv/shims:/Users/charltonaustin/google-cloud-sdk/bin:/usr/local/sbin:/Users/charltonaustin/.pyenv/shims:/usr/local/Cellar/pyenv-virtualenv/1.0.0/shims:/Users/charltonaustin/.rbenv/shims:/Users/charltonaustin/.pyenv/shims:/usr/local/Cellar/pyenv-virtualenv/1.0.0/shims:/Users/charltonaustin/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin:/Applications/Wireshark.app/Contents/MacOS:/usr/local/opt/go/libexec/bin:/Users/charltonaustin/dev/work/git_commit_message:/usr/local/opt/go/libexec/bin:/Users/charltonaustin/dev/go/bin:/Users/charltonaustin/dev/personal/dotfiles/bin:/Users/charltonaustin/.vimpkg/bin:/Users/charltonaustin/go/bin:/Users/charltonaustin/Documents/google-cloud-sdk/bin/gcloud:/Users/charltonaustin/dev/work/tuesday-strategies/infra/environment_operations/dev/scripts/"
+export CLOUDSDK_PYTHON=$(which python3)
