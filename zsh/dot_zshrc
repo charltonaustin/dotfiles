@@ -6,11 +6,13 @@ ZSH_THEME="gallois"
 HYPHEN_INSENSITIVE="true"
 
 plugins=(git zsh-autosuggestions gitfast)
+# These exports are needed here so that it is set in the right order.
+export PERSONAL="$HOME/dev/personal"
+export WORK="$HOME/dev/work"
+
+for f in $PERSONAL/dotfiles/sh_files/*; do source $f; done
+for f in $PERSONAL/dotfiles/completions/zsh/*; do source $f; done
 source $ZSH/oh-my-zsh.sh
-
-
-for f in $HOME/dev/personal/dotfiles/sh_files/*; do source $f; done
-for f in $HOME/dev/personal/dotfiles/completions/zsh/*; do source $f; done
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 

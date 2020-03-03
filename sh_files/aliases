@@ -15,9 +15,8 @@ alias functions='declare -f'
 alias w='cd $WORK'
 alias glc='git-local-checkout'
 alias ts='cd $HOME/dev/go/src/github.com/tuesday-strategies/tuesday-strategies'
-alias dotfiles='cd $HOME/dotfiles'
+alias dotfiles='cd $PERSONAL/dotfiles'
 alias emacs="open -a /Applications/Emacs.app"
 alias b-e="cd $HOME/dev/blog-entries"
-for f in ~/dev/personal/dotfiles/sh_files/*
 alias ctags="`brew --prefix`/bin/ctags"
 
