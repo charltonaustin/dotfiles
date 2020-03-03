@@ -1,48 +1,23 @@
 alias uuid-runtime='uuidgen'
-
 alias la='ls -a'
 alias ll='ls -l'
 alias lla='ls -la'
 alias l='ls'
-
-
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
-
 alias mkdir='mkdir -pv'
-
 alias vi=vim
 alias svi='sudo vi'
 alias vis='vim "+set si"'
 alias edit='vim'
-
 alias functions='declare -f'
-alias ssh-blog='ssh 192.241.242.31'
-
-alias alm='cd $HOME/dev/go/src/github.com/coreos-inc/alm'
-alias dc='docker-compose'
-alias q='cd $QUAY/quay'
-alias q_c='cd $QUAY/quay_config'
-alias q-c='cd $QUAY'
-alias qb='cd $QUAY/quay-builder'
 alias w='cd $WORK'
 alias glc='git-local-checkout'
-alias g-ci='cd $HOME/dev/go/src/github.com/coreos-inc'
-alias g-co='cd $HOME/dev/go/src/github.com/coreos'
-alias g-a='cd $HOME/dev/go/src/github.com/coreos-inc/apostille'
 alias ts='cd $HOME/dev/go/src/github.com/tuesday-strategies/tuesday-strategies'
-alias g-ca='cd $HOME/dev/go/src/github.com/charltonaustin'
 alias dotfiles='cd $HOME/dotfiles'
 alias emacs="open -a /Applications/Emacs.app"
 alias b-e="cd $HOME/dev/blog-entries"
-
-alias docker-clean='docker rm $(docker ps -a -q); docker rmi $(docker images -f "dangling=true" -q); docker volume rm $(docker volume ls -qf dangling=true)'
-alias docker-stop='docker stop $(docker ps -a -q)'
-
-
 for f in ~/dev/personal/dotfiles/sh_files/*
-do
-  filename=`basename $f`
-  alias v$filename="vim ~/dev/personal/dotfiles/sh_files/${filename} && source ~/.zshrc"
-done
+alias ctags="`brew --prefix`/bin/ctags"
+

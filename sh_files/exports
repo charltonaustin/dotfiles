@@ -1,15 +1,35 @@
 export WORK="$HOME/dev/work"
-export QUAY="$WORK/quay-compose"
 export VISUAL=vim
 export EDITOR="$VISUAL"
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 export GOPATH=$HOME/dev/go
+export CLOUDSDK_PYTHON=$(which python3)
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+export PYTHONDONTWRITEBYTECODE=True
+export LANG=en_US.UTF-8
+export ZSH=$HOME/.oh-my-zsh
 
+export TS_HOME=/Users/charltonaustin/dev/work/tuesday-strategies
+export REACT_APP_TS_CONFIG_ENV=dev
+export REACT_APP_TS_CONFIG_URL=http://localhost:4000
+
+export PATH=$PATH:$HOME/.pyenv/shims
+export PATH=$PATH:$HOME/.rbenv/shims
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export PATH=$PATH:$HOME/dev/go/bin
 export PATH=$PATH:$HOME/dotfiles/bin
 export PATH="/usr/local/sbin:$PATH"
-
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-export PYTHONDONTWRITEBYTECODE=True
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export PATH=$PATH:$HOME/dev/work/git_commit_message
+export PATH=$PATH:$HOME/google-cloud-sdk/bin
+export PATH=$PATH:/usr/local/Cellar/pyenv-virtualenv/1.0.0/shims
+export PATH=$PATH:/usr/local/bin
+export PATH=$PATH:/usr/bin
+export PATH=$PATH:/bin
+export PATH=$PATH:/sbin
+export PATH=$PATH:/usr/local/MacGPG2/bin
+export PATH=$PATH:/Applications/Wireshark.app/Contents/MacOS
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export PATH=$PATH:$HOME/.vimpkg/bin
+export PATH=$PATH:${HOME}/go/bin
