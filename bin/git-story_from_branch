@@ -1,6 +1,19 @@
-STORY_NUMBER=`git branch | grep \* | rev  | cut -d'_' -f 1 | rev `
-BRANCH_NAME=`git branch | grep \* | sed 's/\* //g'`
+STORY_BOARD_TYPE=`git branch | grep \* | cut -d'_' -f 1 | sed 's/\* //g' | tr a-z A-Z`
+STORY_NUMBER=`git branch | grep \* | cut -d'_' -f 2 | sed 's/\* //g' | tr a-z A-Z `
+BRANCH_NAME=`git branch | grep \* | sed 's/\* //'`
+
+echo "Un-setting story.number `git config --local --get story.number`"
+git config --unset-all --local story.number
+echo "Un-setting story.branch `git config --local --get story.branch`"
+git config --unset-all --local story.branch
+echo "Un-setting story.boardtype `git config --local --get story.boardtype`"
+git config --unset-all --local story.boardtype
+echo "Un-setting story.focus `git config --local --get story.focus`"
+git config --unset-all --local story.focus
+
 echo "Setting story.number ${STORY_NUMBER}"
 git config --add --local story.number $STORY_NUMBER
 echo "Setting story.branch ${BRANCH_NAME}"
 git config --add --local story.branch $BRANCH_NAME
+echo "Setting story.boardtype ${STORY_BOARD_TYPE}"
+git config --add --local story.boardtype $STORY_BOARD_TYPE

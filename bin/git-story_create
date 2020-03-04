@@ -1,14 +1,25 @@
-BRANCH_NAME=`echo "$@" | tr '[:upper:]' '[:lower:]' | sed "s/'//g"| sed 's/#//g' | sed 's/ \{1,\}/_/g'`
-for last; do true; done
-echo $last
-STORY_NUMBER=`echo $last | sed 's/#//g'`
-echo "Unsetting `git config --local --get story.number`"
-git config --unset --local story.number
-echo "Unsetting story.branch `git config --local --get story.branch`"
-git config --unset --local story.branch
+BRANCH_NAME=`echo "$1 ${*:3}" | tr '[:upper:]' '[:lower:]' | sed "s/'//g"| sed 's/#//g'| sed 's/{//g' | sed 's/}//g'| sed 's/ \{1,\}/_/g' | sed 's/-/_/g'`
+STORY_BOARD_TYPE=`echo $1 | sed 's/[[:digit:]]//g' | sed 's/-//g'`
+STORY_NUMBER=`echo $1 | sed 's/ENG//g' | sed 's/DESIGN//g' | sed 's/PRD//g' | sed 's/TEST//g' | sed 's/-//g'`
+STORY_FOCUS=`echo $2`
+
+
+echo "Un-setting story.number `git config --local --get story.number`"
+git config --unset-all --local story.number
+echo "Un-setting story.branch `git config --local --get story.branch`"
+git config --unset-all --local story.branch
+echo "Un-setting story.boardtype `git config --local --get story.boardtype`"
+git config --unset-all --local story.boardtype
+echo "Un-setting story.focus `git config --local --get story.focus`"
+git config --unset-all --local story.focus
+
+echo "Setting story.boardtype ${STORY_BOARD_TYPE}"
+git config --add --local story.boardtype $STORY_BOARD_TYPE
 echo "Setting story.number ${STORY_NUMBER}"
 git config --add --local story.number $STORY_NUMBER
 echo "Setting story.branch ${BRANCH_NAME}"
 git config --add --local story.branch $BRANCH_NAME
+echo "Setting story.focus ${STORY_FOCUS}"
+git config --add --local story.focus STORY_FOCUS
 
-git checkout -b $BRANCH_NAME
+git checkout -b $BRANCH_NAME > /dev/null 2>&1 || git checkout $BRANCH_NAME
