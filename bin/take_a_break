@@ -10,10 +10,13 @@ if [[ $x = "5" ]]; then
   mkdir -p $HOME/dev/work
   touch $HOME/dev/work/daily_pomodoro.txt
   echo `date` "Taking a break for 5 mins" >> $HOME/dev/work/daily_pomodoro.txt
+  delayed_mac 5 pomodoro
+
 fi
 if [[ $x = "15" ]]; then
   mkdir -p $HOME/dev/work
   touch $HOME/dev/work/daily_pomodoro.txt
   echo `date` "Taking a break for 15 mins" >> $HOME/dev/work/daily_pomodoro.txt
+  delayed_mac 15 pomodoro
+  delayed_mac 15 play_alarm
 fi
-delayed_mac 5 pomodoro

@@ -1,0 +1,7 @@
+i=0
+
+while [ $i -le 1 ]
+do
+  afplay ~/Documents/alarm.m4a
+  ((i++))
+done
