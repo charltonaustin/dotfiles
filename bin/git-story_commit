@@ -1,3 +1,0 @@
-rm /tmp/git-message
-git format_commit_message
-git commit -F /tmp/git-message

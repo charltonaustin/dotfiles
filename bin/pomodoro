@@ -1,4 +1,7 @@
 #!/bin/bash
+
+cat /System/Library/LaunchDaemons/com.apple.atrun.plist | grep -A 2 '<key>Disabled</key>' | grep true > /dev/null 2>&1 && echo "Need to enable atrun at /System/Library/LaunchDaemons/com.apple.atrun.plist you might have to disable csrutil to change it" && exit 1
+
 x=`/usr/bin/osascript <<EOT
 tell application "Finder"
     activate

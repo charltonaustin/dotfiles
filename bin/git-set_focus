@@ -1,0 +1,9 @@
+#! /bin/bash
+
+STORY_FOCUS=`echo $1`
+
+echo "Un-setting story.focus `git config --local --get story.focus`"
+git config --unset-all --local story.focus
+
+echo "Setting story.focus ${STORY_FOCUS}"
+git config --add --local story.focus ${STORY_FOCUS}
