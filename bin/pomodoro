@@ -23,5 +23,5 @@ else
   mkdir -p $HOME/dev/work
   touch $HOME/dev/work/daily_pomodoro.txt 
   echo `date` $x >> $HOME/dev/work/daily_pomodoro.txt 
-  delayed_mac 25 five_min
+  delayed_mac 25 break
 fi
