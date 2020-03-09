@@ -1,0 +1,5 @@
+#! /bin/zsh
+eval "$(pyenv virtualenv-init -)"
+eval "$(pyenv init -)"
+pyenv activate py_jira
+python $WORK/py_jira/main.py $@

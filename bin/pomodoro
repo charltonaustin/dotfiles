@@ -23,6 +23,6 @@ else
   mkdir -p $HOME/dev/work
   touch $HOME/dev/work/daily_pomodoro.txt 
   echo `date` $x >> $HOME/dev/work/daily_pomodoro.txt 
-  delayed_mac 25 take_a_break
   delayed_mac 25 play_alarm
+  delayed_mac 25 take_a_break
 fi

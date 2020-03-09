@@ -1,0 +1,6 @@
+#! /bin/zsh
+eval "$(pyenv virtualenv-init -)"
+eval "$(pyenv init -)"
+pyenv activate py_git
+python $WORK/py_git/main.py $@
+
