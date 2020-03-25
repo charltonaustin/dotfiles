@@ -13,6 +13,7 @@ export TS_HOME=/Users/charltonaustin/dev/work/tuesday-strategies
 export REACT_APP_TS_CONFIG_ENV=dev
 export REACT_APP_TS_CONFIG_URL=http://localhost:4000
 
+export PATH=$PATH:usr/local/opt/openssl@1.1/bin
 export PATH=$PATH:$HOME/.pyenv/shims
 export PATH=$PATH:$HOME/.rbenv/shims
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
