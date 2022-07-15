@@ -1,1 +1,2 @@
 cp $PERSONAL/dotfiles/zsh/dot_zshrc $HOME/.zshrc
+cp $PERSONAL/dotfiles/gitconfig $HOME/.gitconfig
