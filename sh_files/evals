@@ -4,4 +4,4 @@ eval "$(pyenv init -)"
 
 # Make sure that atrun loads properly
 launchctl unload /System/Library/LaunchDaemons/com.apple.atrun.plist > /dev/null 2>&1
-launchctl load -Fw /System/Library/LaunchDaemons/com.apple.atrun.plist
+launchctl load -Fw /System/Library/LaunchDaemons/com.apple.atrun.plist > /dev/null 2>&1
