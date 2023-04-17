@@ -9,6 +9,16 @@ plugins=(git zsh-autosuggestions gitfast)
 # These exports are needed here so that it is set in the right order.
 export PERSONAL="$HOME/dev/personal"
 export WORK="$HOME/dev/work"
+export PATH="/opt/homebrew/bin:$PATH"
+source ~/.oh-my-zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+if ! type "brew" &> /dev/null ; then
+  echo "installing brew"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
+if ! type "rbenv" > /dev/null; then
+  echo "installing rbenv"
+fi
 
 for f in $PERSONAL/dotfiles/sh_files/*; do source $f; done
 for f in $PERSONAL/dotfiles/completions/zsh/*; do source $f; done
@@ -22,23 +32,11 @@ zstyle ':completion:*:*:git:*' user-commands new-branch:'custom new branch funct
 
 [[ -s "kubectl" ]] && source <(kubectl completion zsh | sed -e '/flaghash.*true/s/# pad/2>\/dev\/null # pad/')
 
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/charltonaustin/Documents/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/charltonaustin/Documents/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/charltonaustin/Documents/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/charltonaustin/Documents/google-cloud-sdk/completion.zsh.inc'; fi
-
-export PATH="/opt/homebrew/bin:$PATH"
-if ! type "brew" &> /dev/null ; then
-  echo "installing brew"
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-fi
-
-if ! type "rbenv" > /dev/null; then
-  echo "installing rbenv"
-fi
 
 bindkey "\e\e[D" backward-word
 bindkey "\e\e[C" forward-word
