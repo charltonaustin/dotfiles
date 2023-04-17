@@ -1,6 +1,7 @@
 # dotfiles
 A place to keep my configuration
 
+```bash
 export PESONAL=~/dev/personal
-
-`chmod +x ./bin/update-dot-config && ./bin/update-dot-config`
+chmod +x ./bin/update-dot-config && ./bin/update-dot-config
+```
