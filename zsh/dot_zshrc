@@ -18,7 +18,21 @@ fi
 
 if ! type "rbenv" > /dev/null; then
   echo "installing rbenv"
+  brew install rbenv
 fi
+
+if ! type "wget" > /dev/null; then
+    echo "installing wget"
+    brew install wget
+fi
+
+if [ -d "~/.oh-my-zsh/plugins/zsh-autosuggestions" ]
+then
+else
+    git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
+fi
+sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+
 
 for f in $PERSONAL/dotfiles/sh_files/*; do source $f; done
 for f in $PERSONAL/dotfiles/completions/zsh/*; do source $f; done
