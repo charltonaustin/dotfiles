@@ -11,3 +11,5 @@ _git-local-checkout() {
   completions="$(git branch | tr -d " " | tr -d \*)"  
   reply=(${(ps:\n:)completions})
 }
+
+zstyle ':completion:*:*:git:*' user-commands new-branch:'custom new branch function'

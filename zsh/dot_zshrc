@@ -1,77 +1,14 @@
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="gallois"
-
 HYPHEN_INSENSITIVE="true"
-
 plugins=(git zsh-autosuggestions gitfast)
-# These exports are needed here so that it is set in the right order.
+
 export PERSONAL="$HOME/dev/personal"
 export WORK="$HOME/dev/work"
 export PATH="/opt/homebrew/bin:$PATH"
-source ~/.oh-my-zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-if ! type "brew" &> /dev/null ; then
-  echo "installing brew"
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-fi
 
-if ! type "rbenv" > /dev/null; then
-  echo "installing rbenv"
-  brew install rbenv
-fi
-
-if ! type "pyenv" > /dev/null; then
-  echo "installing pyenv"
-  brew install pyenv
-fi
-if ! type "wget" > /dev/null; then
-    echo "installing wget"
-    brew install wget
-fi
-
-if ! type "virtualenv" > /dev/null; then
-    echo "installing virtualenv"
-    brew install virtualenv
-fi
-
-if ! type "pyenv-virtualenv" > /dev/null; then
-    echo "installing pyenv-virtualenv"
-    brew install pyenv-virtualenv
-fi
-
-
-
-
-if [ ! -d "${HOME}/.oh-my-zsh/plugins/zsh-autosuggestions" ]; then
-    git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
-fi
-
-if [ ! -d "${HOME}/.oh-my-zsh" ]; then
-    sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
-fi
-
-
+source $PERSONAL/dotfiles/sh_files/installs
 
 for f in $PERSONAL/dotfiles/sh_files/*; do source $f; done
 for f in $PERSONAL/dotfiles/completions/zsh/*; do source $f; done
+
 source $ZSH/oh-my-zsh.sh
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-zstyle ':completion:*:*:git:*' user-commands new-branch:'custom new branch function'
-
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
-
-[[ -s "kubectl" ]] && source <(kubectl completion zsh | sed -e '/flaghash.*true/s/# pad/2>\/dev\/null # pad/')
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/charltonaustin/Documents/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/charltonaustin/Documents/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/charltonaustin/Documents/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/charltonaustin/Documents/google-cloud-sdk/completion.zsh.inc'; fi
-
-bindkey "\e\e[D" backward-word
-bindkey "\e\e[C" forward-word
-bindkey "^[[1;3C" forward-word
-bindkey "^[[1;3D" backward-word

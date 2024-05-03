@@ -1,0 +1,4 @@
+bindkey "\e\e[D" backward-word
+bindkey "\e\e[C" forward-word
+bindkey "^[[1;3C" forward-word
+bindkey "^[[1;3D" backward-word

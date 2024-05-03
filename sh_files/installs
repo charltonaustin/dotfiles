@@ -1,0 +1,42 @@
+if [ ! -d "${HOME}/.oh-my-zsh/plugins/zsh-autosuggestions" ]; then
+    git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
+fi
+
+if [ ! -d "${HOME}/.oh-my-zsh" ]; then
+    sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+fi
+
+if ! type "brew" &> /dev/null ; then
+  echo "installing brew"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
+if ! type "rbenv" > /dev/null; then
+  echo "installing rbenv"
+  brew install rbenv
+fi
+
+if ! type "pyenv" > /dev/null; then
+  echo "installing pyenv"
+  brew install pyenv
+fi
+
+if ! type "wget" > /dev/null; then
+    echo "installing wget"
+    brew install wget
+fi
+
+if ! type "virtualenv" > /dev/null; then
+    echo "installing virtualenv"
+    brew install virtualenv
+fi
+
+if ! type "pyenv-virtualenv" > /dev/null; then
+    echo "installing pyenv-virtualenv"
+    brew install pyenv-virtualenv
+fi
+
+if ! type "opam" > /dev/null; then
+    echo "installing opam"
+    brew install opam
+fi
