@@ -8,3 +8,4 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export PYTHONDONTWRITEBYTECODE=True
 export LANG=en_US.UTF-8
 export ZSH=$HOME/.oh-my-zsh
+export SSL_CERT_FILE=/opt/homebrew/etc/ca-certificates/cert.pem
