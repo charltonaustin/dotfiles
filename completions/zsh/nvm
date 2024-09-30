@@ -2,9 +2,3 @@ export NVM_DIR="$HOME/.nvm"
 
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-
-if brew ls --versions nvm > /dev/null; then
-else
-  echo "installing nvm"
-  # brew install nvm
-fi

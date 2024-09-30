@@ -1,9 +1,9 @@
-if [ ! -d "${HOME}/.oh-my-zsh/plugins/zsh-autosuggestions" ]; then
-    git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
-fi
-
 if [ ! -d "${HOME}/.oh-my-zsh" ]; then
     sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+fi
+
+if [ ! -d "${HOME}/.oh-my-zsh/plugins/zsh-autosuggestions" ]; then
+    git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
 fi
 
 if ! type "brew" &> /dev/null ; then
@@ -39,4 +39,16 @@ fi
 if ! type "opam" > /dev/null; then
     echo "installing opam"
     brew install opam
+fi
+
+if brew ls --versions nvm > /dev/null; then
+else
+  echo "installing nvm"
+  brew install nvm
+fi
+
+if ! type "rustup" > /dev/null;
+then
+  echo "installing rust"
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 fi
