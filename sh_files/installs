@@ -11,6 +11,11 @@ if ! type "brew" &> /dev/null ; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
+if ! type "wget" > /dev/null; then
+    echo "installing wget"
+    brew install wget
+fi
+
 if ! type "rbenv" > /dev/null; then
   echo "installing rbenv"
   brew install rbenv
@@ -19,11 +24,6 @@ fi
 if ! type "pyenv" > /dev/null; then
   echo "installing pyenv"
   brew install pyenv
-fi
-
-if ! type "wget" > /dev/null; then
-    echo "installing wget"
-    brew install wget
 fi
 
 if ! type "virtualenv" > /dev/null; then
@@ -51,4 +51,14 @@ if ! type "rustup" > /dev/null;
 then
   echo "installing rust"
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+fi
+
+if ! type "ghc" > /dev/null; then
+    echo "installing ghc"
+    brew install ghc
+fi
+
+if ! type "cabal" > /dev/null; then
+    echo "installing cabal"
+    brew install cabal-install
 fi
