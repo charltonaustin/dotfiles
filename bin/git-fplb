@@ -4,5 +4,5 @@ then
   echo "Can't force push to master or main"
 else
   echo "Force pushing!"
-  git push --force-with-lease origin $BRANCH
+  git push --force-with-lease origin $BRANCH --no-verify
 fi
