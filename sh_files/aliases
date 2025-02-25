@@ -18,6 +18,5 @@ alias ts='cd $TS_HOME'
 alias diva='cd $TS_HOME/diva'
 alias db_api='cd $TS_HOME/db_api'
 alias dotfiles='cd $PERSONAL/dotfiles'
-alias emacs="open -a /Applications/Emacs.app"
 alias b-e="cd $HOME/dev/blog-entries"
 alias ctags="`brew --prefix`/bin/ctags"
