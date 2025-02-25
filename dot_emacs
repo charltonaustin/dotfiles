@@ -1,4 +1,4 @@
-
+  (setq helm-grep-open-file-after-selection t)
   (when (fboundp 'global-display-line-numbers-mode)
     (global-display-line-numbers-mode t))
   (setq display-line-numbers 'absolute)
@@ -6,3 +6,14 @@
                   (lambda ()
                     (interactive)
                     (delete-region (save-excursion (backward-word) (point)) (point))))
+  (setq auto-save-default t)  ;; Enable auto-save globally
+  (setq auto-save-timeout 30) ;; Set the timeout to 30 seconds
+  (setq auto-save-interval 200) ;; Set auto-save interval in number of characters
+  (add-hook 'focus-out-hook
+            (lambda ()
+              (save-some-buffers t)))
+  (global-set-key (kbd "C-u") (lambda () (interactive) (kill-line 0)))
+  (setq select-enable-clipboard nil)
+  (setq save-interprogram-paste-before-kill t)
+  (setf ansi-color-for-comit-mode 'filter)
+  (global-set-key (kbd "M-w") 'clipboard-kill-ring-save)
