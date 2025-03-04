@@ -1,0 +1,64 @@
+;; -*- mode: emacs-lisp; lexical-binding: t -*-
+
+(defun my-spacemacs-init ()
+  "My custom Spacemacs configuration function.
+This contains all my personal settings that would normally be in
+user-init and user-config sections of .spacemacs."
+
+  ;; User-init settings
+  (defvar *my-current-location* nil
+    "Stores the location before isearch starts.")
+
+  (add-hook 'isearch-mode-hook
+            (lambda ()
+              ;; Save the original point position
+              (setq *my-current-location* (point))
+              (goto-char (point-min))))  ;; Move to the beginning of the file when search starts
+
+  (add-hook 'isearch-mode-end-hook
+            (lambda ()
+              ;; If *my-current-location* is set, return to that position
+              (when (integerp *my-current-location*)
+                (goto-char *my-current-location*))
+              ;; Clear the stored position
+              (setq *my-current-location* nil)))
+
+  (add-hook 'isearch-update-post-hook
+            (lambda ()
+              (setq *my-current-location* (point)))))
+(defun my-spacemacs-config ()
+
+  ;; User-config settings
+  (require 'move-text)
+  (move-text-default-bindings)
+  (setq helm-grep-open-file-after-selection t)
+  (setq magit-repository-directories
+        '(("~/dev/work/" . 2) ))
+  (setq helm-grep-open-file-after-selection t)
+  (when (fboundp 'global-display-line-numbers-mode)
+    (global-display-line-numbers-mode t))
+  (setq display-line-numbers 'absolute)
+  (global-set-key (kbd "M-DEL")
+                  (lambda ()
+                    (interactive)
+                    (delete-region (save-excursion (backward-word) (point)) (point))))
+  (setq auto-save-default t)  ;; Enable auto-save globally
+  (setq auto-save-timeout 30) ;; Set the timeout to 30 seconds
+  (setq auto-save-interval 200) ;; Set auto-save interval in number of characters
+  (add-hook 'focus-out-hook
+            (lambda ()
+              (save-some-buffers t)))
+  (global-set-key (kbd "C-u") (lambda () (interactive) (kill-line 0)))
+  (setq select-enable-clipboard nil)
+  (setq save-interprogram-paste-before-kill t)
+  (setf ansi-color-for-comit-mode 'filter)
+  (global-set-key (kbd "M-w") 'clipboard-kill-ring-save)
+  (spacemacs/toggle-evil-safe-lisp-structural-editing-on-register-hook-common-lisp-mode)
+
+  (defun my/switch-to-buffer-list ()
+    "Switch to the buffer list window after calling `list-buffers`."
+    (interactive)
+    (list-buffers)
+    (other-window 1))
+
+  (global-set-key (kbd "C-x C-b") 'my/switch-to-buffer-list))
