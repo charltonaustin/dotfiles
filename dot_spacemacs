@@ -61,4 +61,6 @@ user-init and user-config sections of .spacemacs."
     (list-buffers)
     (other-window 1))
 
-  (global-set-key (kbd "C-x C-b") 'my/switch-to-buffer-list))
+  (global-set-key (kbd "C-x C-b") 'my/switch-to-buffer-list)
+  (setq split-width-threshold nil)
+  (setq split-height-threshold 0))
